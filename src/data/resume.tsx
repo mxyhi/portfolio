@@ -202,7 +202,7 @@ export const DATA = {
       school: "Henan University of Science and Technology",
       href: "https://www.haust.edu.cn/",
       degree: "Computer Science and Technology",
-      logoUrl: "",
+      logoUrl: "/haust.png",
     },
   ],
   projects: [
