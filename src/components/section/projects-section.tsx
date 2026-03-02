@@ -23,11 +23,11 @@ export default function ProjectsSection() {
                         />
                     </div>
                     <div className="flex flex-col gap-y-3 items-center justify-center">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Check out my latest work</h2>
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Check out my open-source work</h2>
                         <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed text-balance text-center">
-                            I&apos;ve worked on a variety of projects, from simple
-                            websites to complex web applications. Here are a few of my
-                            favorites.
+                            These are the repositories I&apos;m actively building and
+                            maintaining in public, focused on AI infrastructure,
+                            developer tooling, and practical agent workflows.
                         </p>
                     </div>
                 </div>
@@ -56,4 +56,3 @@ export default function ProjectsSection() {
         </section>
     );
 }
-

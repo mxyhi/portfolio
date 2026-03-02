@@ -1,16 +1,34 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
-import { ReactLight } from "@/components/ui/svgs/reactLight";
-import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
-import { Typescript } from "@/components/ui/svgs/typescript";
-import { Nodejs } from "@/components/ui/svgs/nodejs";
-import { Python } from "@/components/ui/svgs/python";
-import { Golang } from "@/components/ui/svgs/golang";
-import { Postgresql } from "@/components/ui/svgs/postgresql";
+import { Aliyun } from "@/components/ui/svgs/aliyun";
+import { Anthropic } from "@/components/ui/svgs/anthropic";
+import { Aws } from "@/components/ui/svgs/aws";
+import { Chroma } from "@/components/ui/svgs/chroma";
+import { Cloudflare } from "@/components/ui/svgs/cloudflare";
+import { Css } from "@/components/ui/svgs/css";
+import { Dify } from "@/components/ui/svgs/dify";
 import { Docker } from "@/components/ui/svgs/docker";
-import { Kubernetes } from "@/components/ui/svgs/kubernetes";
-import { Java } from "@/components/ui/svgs/java";
-import { Csharp } from "@/components/ui/svgs/csharp";
+import { Express } from "@/components/ui/svgs/express";
+import { Golang } from "@/components/ui/svgs/golang";
+import { Html } from "@/components/ui/svgs/html";
+import { Milvus } from "@/components/ui/svgs/milvus";
+import { Mongodb } from "@/components/ui/svgs/mongodb";
+import { Mysql } from "@/components/ui/svgs/mysql";
+import { N8n } from "@/components/ui/svgs/n8n";
+import { Nestjs } from "@/components/ui/svgs/nestjs";
+import { NextjsIconDark } from "@/components/ui/svgs/nextjsIconDark";
+import { Nodejs } from "@/components/ui/svgs/nodejs";
+import { Openclaw } from "@/components/ui/svgs/openclaw";
+import { Postgresql } from "@/components/ui/svgs/postgresql";
+import { Python } from "@/components/ui/svgs/python";
+import { Qdrant } from "@/components/ui/svgs/qdrant";
+import { ReactLight } from "@/components/ui/svgs/reactLight";
+import { Rust } from "@/components/ui/svgs/rust";
+import { Sqlite } from "@/components/ui/svgs/sqlite";
+import { Tauri } from "@/components/ui/svgs/tauri";
+import { Typescript } from "@/components/ui/svgs/typescript";
+import { Vercel } from "@/components/ui/svgs/vercel";
+import { Vue } from "@/components/ui/svgs/vue";
+import { HomeIcon, Leaf, NotebookIcon, SquarePi } from "lucide-react";
 
 export const DATA = {
   name: "Dillion Verma",
@@ -24,17 +42,41 @@ export const DATA = {
     "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
   avatarUrl: "/me.png",
   skills: [
+    { name: "Typescript", icon: Typescript },
+    { name: "Vue", icon: Vue },
+    { name: "HTML", icon: Html },
+    { name: "CSS", icon: Css },
+    { name: "Rust", icon: Rust },
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
-    { name: "Typescript", icon: Typescript },
     { name: "Node.js", icon: Nodejs },
+    { name: "Nest.js", icon: Nestjs },
+    { name: "Express", icon: Express },
+    { name: "Koa", icon: Leaf },
     { name: "Python", icon: Python },
     { name: "Go", icon: Golang },
     { name: "Postgres", icon: Postgresql },
+    { name: "MySQL", icon: Mysql },
+    { name: "MongoDB", icon: Mongodb },
+    { name: "Qdrant", icon: Qdrant },
+    { name: "Milvus", icon: Milvus },
+    { name: "pgvector", icon: Postgresql },
+    { name: "Chroma", icon: Chroma },
+    { name: "SQLite", icon: Sqlite },
     { name: "Docker", icon: Docker },
-    { name: "Kubernetes", icon: Kubernetes },
-    { name: "Java", icon: Java },
-    { name: "C++", icon: Csharp },
+    { name: "Tauri", icon: Tauri },
+    { name: "AWS", icon: Aws },
+    { name: "Cloudflare", icon: Cloudflare },
+    { name: "Aliyun", icon: Aliyun },
+    { name: "OpenAI", icon: Icons.openai },
+    { name: "Anthropic", icon: Anthropic },
+    { name: "Gemini", icon: Icons.gemini },
+    { name: "Mastra", icon: Icons.mastra },
+    { name: "ai-sdk", icon: Vercel },
+    { name: "Dify", icon: Dify },
+    { name: "n8n", icon: N8n },
+    { name: "OpenClaw", icon: Openclaw },
+    { name: "pi-mono", icon: SquarePi },
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -46,31 +88,31 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://dub.sh/dillion-github",
+        url: "https://github.com/mxyhi",
         icon: Icons.github,
         navbar: true,
       },
 
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "https://dub.sh/dillion-linkedin",
-        icon: Icons.linkedin,
+      // LinkedIn: {
+      //   name: "LinkedIn",
+      //   url: "https://xxx",
+      //   icon: Icons.linkedin,
 
-        navbar: true,
-      },
+      //   navbar: true,
+      // },
       X: {
         name: "X",
-        url: "https://dub.sh/dillion-twitter",
+        url: "https://x.com/mxy252",
         icon: Icons.x,
 
         navbar: true,
       },
-      Youtube: {
-        name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
-        icon: Icons.youtube,
-        navbar: true,
-      },
+      // Youtube: {
+      //   name: "Youtube",
+      //   url: "https://xxx",
+      //   icon: Icons.youtube,
+      //   navbar: true,
+      // },
       email: {
         name: "Send Email",
         url: "#",
@@ -157,160 +199,116 @@ export const DATA = {
   ],
   education: [
     {
-      school: "Buildspace",
-      href: "https://buildspace.so",
-      degree: "s3, s4, sf1, s5",
-      logoUrl: "/buildspace.jpg",
-      start: "2023",
-      end: "2024",
-    },
-    {
-      school: "University of Waterloo",
-      href: "https://uwaterloo.ca",
-      degree: "Bachelor's Degree of Computer Science (BCS)",
-      logoUrl: "/waterloo.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "Wilfrid Laurier University",
-      href: "https://wlu.ca",
-      degree: "Bachelor's Degree of Business Administration (BBA)",
-      logoUrl: "/laurier.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "International Baccalaureate",
-      href: "https://ibo.org",
-      degree: "IB Diploma",
-      logoUrl: "/ib.png",
-      start: "2012",
-      end: "2016",
+      school: "Henan University of Science and Technology",
+      href: "https://www.haust.edu.cn/",
+      degree: "Computer Science and Technology",
+      logoUrl: "",
     },
   ],
   projects: [
     {
-      title: "Chat Collect",
-      href: "https://chatcollect.com",
-      dates: "Jan 2024 - Feb 2024",
+      title: "token_proxy",
+      href: "https://github.com/mxyhi/token_proxy",
       active: true,
+      dates: "Jan 2026 - Present",
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "Local AI API gateway for OpenAI / Gemini / Anthropic, with local token accounting (SQLite), priority-based load balancing, and optional format conversion across Chat/Responses/Messages APIs.",
       technologies: [
-        "Next.js",
+        "Rust",
+        "Tauri",
         "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
+        "SQLite",
+        "OpenAI API",
+        "Anthropic",
+        "Gemini",
       ],
       links: [
-        {
-          type: "Website",
-          href: "https://chatcollect.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
-    },
-    {
-      title: "Magic UI",
-      href: "https://magicui.design",
-      dates: "June 2023 - Present",
-      active: true,
-      description:
-        "Designed, developed and sold animated UI components for developers.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://magicui.design",
-          icon: <Icons.globe className="size-3" />,
-        },
         {
           type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
+          href: "https://github.com/mxyhi/token_proxy",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      image: "https://opengraph.githubassets.com/1/mxyhi/token_proxy",
+      video: "",
     },
     {
-      title: "llm.report",
-      href: "https://llm.report",
-      dates: "April 2023 - September 2023",
+      title: "ok-skills",
+      href: "https://github.com/mxyhi/ok-skills",
       active: true,
+      dates: "Feb 2026 - Present",
       description:
-        "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
+        "Curated skill collection for coding agents (Codex / Claude Code / pi agent), covering planning, documentation retrieval, CI fixes, browser automation, and TDD workflows.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
+        "Python",
+        "Markdown",
+        "Codex",
+        "Claude Code",
+        "Context7",
+        "Agent Skills",
       ],
       links: [
         {
-          type: "Website",
-          href: "https://llm.report",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
           type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
+          href: "https://github.com/mxyhi/ok-skills",
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
+      image: "https://opengraph.githubassets.com/1/mxyhi/ok-skills",
+      video: "",
     },
     {
-      title: "Automatic Chat",
-      href: "https://automatic.chat",
-      dates: "April 2023 - March 2024",
+      title: "voice-copy",
+      href: "https://github.com/mxyhi/voice-copy",
       active: true,
+      dates: "Mar 2026 - Present",
       description:
-        "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
+        "Desktop wrapper of CosyVoice with a local-first runtime: React + Tauri frontend, Python FastAPI sidecar for inference, and packaged model/runtime resources for out-of-the-box usage.",
       technologies: [
-        "Next.js",
+        "React",
         "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
+        "Vite",
+        "Tauri v2",
+        "Rust",
+        "Python",
+        "FastAPI",
+        "CosyVoice",
       ],
       links: [
         {
-          type: "Website",
-          href: "https://automatic.chat",
-          icon: <Icons.globe className="size-3" />,
+          type: "Source",
+          href: "https://github.com/mxyhi/voice-copy",
+          icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+      image: "https://opengraph.githubassets.com/1/mxyhi/voice-copy",
+      video: "",
+    },
+    {
+      title: "aidea",
+      href: "https://github.com/mxyhi/aidea",
+      active: true,
+      dates: "Feb 2026 - Present",
+      description:
+        "AI coding agent cloud integration platform built as a TypeScript monorepo: a Mastra-based main agent orchestrates tasks, persists conversation memory with LibSQL, and routes execution to worker agents through a service-oriented runtime.",
+      technologies: [
+        "TypeScript",
+        "Mastra",
+        "Hono",
+        "Drizzle ORM",
+        "LibSQL",
+        "React",
+        "Vite",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/mxyhi/aidea",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "https://opengraph.githubassets.com/1/mxyhi/aidea",
+      video: "",
     },
   ],
   hackathons: [
