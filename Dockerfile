@@ -1,4 +1,4 @@
-FROM node:lts-bookworm-slim AS base
+FROM node:lts-slim AS base
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -22,7 +22,7 @@ COPY . .
 
 RUN pnpm build
 
-FROM node:lts-bookworm-slim AS runner
+FROM node:lts-slim AS runner
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
