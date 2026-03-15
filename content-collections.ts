@@ -6,7 +6,9 @@ import { remarkCodeMeta } from "./src/lib/remark-code-meta";
 
 const posts = defineCollection({
     name: "posts",
-    directory: "content",
+    // Only files under content/published are treated as live blog posts.
+    // Example drafts stay in content/examples as reference material.
+    directory: "content/published",
     include: "**/*.mdx",
     schema: z.object({
         title: z.string(),
@@ -31,4 +33,3 @@ const posts = defineCollection({
 export default defineConfig({
     collections: [posts],
 });
-
