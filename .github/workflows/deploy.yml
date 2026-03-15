@@ -18,6 +18,7 @@ env:
   DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
   DEPLOY_PORT: ${{ vars.DEPLOY_PORT != '' && vars.DEPLOY_PORT || '22' }}
   LOCAL_IMAGE_NAME: ${{ vars.LOCAL_IMAGE_NAME != '' && vars.LOCAL_IMAGE_NAME || 'portfolio' }}
+  NEXT_PUBLIC_CLARITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_CLARITY_PROJECT_ID }}
 
 jobs:
   deploy:
@@ -33,7 +34,10 @@ jobs:
           set -euo pipefail
           IMAGE_TAG="sha-${GITHUB_SHA}"
           IMAGE_ARCHIVE="/tmp/${LOCAL_IMAGE_NAME}-${IMAGE_TAG}.tar.gz"
-          docker build -t "${LOCAL_IMAGE_NAME}:${IMAGE_TAG}" .
+          docker build \
+            --build-arg NEXT_PUBLIC_CLARITY_PROJECT_ID="${NEXT_PUBLIC_CLARITY_PROJECT_ID:-}" \
+            -t "${LOCAL_IMAGE_NAME}:${IMAGE_TAG}" \
+            .
           docker save "${LOCAL_IMAGE_NAME}:${IMAGE_TAG}" | gzip > "${IMAGE_ARCHIVE}"
           printf 'image_tag=%s\n' "${IMAGE_TAG}" >> "$GITHUB_OUTPUT"
           printf 'image_archive=%s\n' "${IMAGE_ARCHIVE}" >> "$GITHUB_OUTPUT"

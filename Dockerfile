@@ -15,7 +15,10 @@ RUN pnpm install --frozen-lockfile
 
 FROM base AS builder
 
+ARG NEXT_PUBLIC_CLARITY_PROJECT_ID
+
 ENV NEXT_TELEMETRY_DISABLED=1
+ENV NEXT_PUBLIC_CLARITY_PROJECT_ID=$NEXT_PUBLIC_CLARITY_PROJECT_ID
 
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

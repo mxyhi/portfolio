@@ -1,13 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { TrackedLink } from "@/components/tracked-link";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
-import Link from "next/link";
 import Markdown from "react-markdown";
 import ContactSection from "@/components/section/contact-section";
 import ProjectsSection from "@/components/section/projects-section";
 import { ArrowUpRight } from "lucide-react";
+import { buildClarityEventName } from "@/lib/clarity";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -74,8 +75,14 @@ export default function Page() {
                 key={education.school}
                 delay={BLUR_FADE_DELAY * 8 + index * 0.05}
               >
-                <Link
+                <TrackedLink
                   href={education.href}
+                  eventName={buildClarityEventName(
+                    "home",
+                    "education",
+                    education.school,
+                    "click"
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-x-3 justify-between group"
@@ -102,7 +109,7 @@ export default function Page() {
                       ) : null}
                     </div>
                   </div>
-                </Link>
+                </TrackedLink>
               </BlurFade>
             ))}
           </div>

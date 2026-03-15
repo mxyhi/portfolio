@@ -9,6 +9,7 @@ services:
       NODE_ENV: "${NODE_ENV:-production}"
       HOSTNAME: "${HOSTNAME:-0.0.0.0}"
       PORT: "${APP_PORT:-3000}"
+      NEXT_PUBLIC_CLARITY_PROJECT_ID: "${NEXT_PUBLIC_CLARITY_PROJECT_ID:-}"
     ports:
       - "${HOST_BIND_IP:-127.0.0.1}:${HOST_PORT:-13000}:${APP_PORT:-3000}"
     healthcheck:

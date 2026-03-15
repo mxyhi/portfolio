@@ -2,9 +2,10 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { TrackedLink } from "@/components/tracked-link";
+import { buildClarityEventName } from "@/lib/clarity";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 import Markdown from "react-markdown";
 
@@ -54,6 +55,8 @@ export function ProjectCard({
   links,
   className,
 }: Props) {
+  const projectOpenEventName = buildClarityEventName("home", "project", title, "open");
+
   return (
     <div
       className={cn(
@@ -62,8 +65,9 @@ export function ProjectCard({
       )}
     >
       <div className="relative shrink-0">
-        <Link
+        <TrackedLink
           href={href || "#"}
+          eventName={projectOpenEventName}
           target="_blank"
           rel="noopener noreferrer"
           className="block"
@@ -82,16 +86,23 @@ export function ProjectCard({
           ) : (
             <div className="w-full h-48 bg-muted" />
           )}
-        </Link>
+        </TrackedLink>
         {links && links.length > 0 && (
           <div className="absolute top-2 right-2 flex flex-wrap gap-2">
             {links.map((link, idx) => (
-              <Link
+              <TrackedLink
                 href={link.href}
                 key={idx}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
+                eventName={buildClarityEventName(
+                  "home",
+                  "project",
+                  title,
+                  link.type,
+                  "click"
+                )}
+                stopPropagation
               >
                 <Badge
                   className="flex items-center gap-1.5 text-xs bg-black text-white hover:bg-black/90"
@@ -100,7 +111,7 @@ export function ProjectCard({
                   {link.icon}
                   {link.type}
                 </Badge>
-              </Link>
+              </TrackedLink>
             ))}
           </div>
         )}
@@ -111,15 +122,16 @@ export function ProjectCard({
             <h3 className="font-semibold">{title}</h3>
             <time className="text-xs text-muted-foreground">{dates}</time>
           </div>
-          <Link
+          <TrackedLink
             href={href || "#"}
+            eventName={projectOpenEventName}
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
             aria-label={`Open ${title}`}
           >
             <ArrowUpRight className="h-4 w-4" aria-hidden />
-          </Link>
+          </TrackedLink>
         </div>
         <div className="text-xs flex-1 prose max-w-full text-pretty font-sans leading-relaxed text-muted-foreground dark:prose-invert">
           <Markdown>{description}</Markdown>

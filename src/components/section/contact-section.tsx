@@ -1,6 +1,7 @@
-import Link from "next/link";
+import { TrackedLink } from "@/components/tracked-link";
 import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import { DATA } from "@/data/resume";
+import { buildClarityEventName } from "@/lib/clarity";
 
 export default function ContactSection() {
   return (
@@ -25,14 +26,15 @@ export default function ContactSection() {
         </h2>
         <p className="mx-auto max-w-lg text-muted-foreground text-balance">
           Want to chat? Just shoot me a DM{" "}
-          <Link
+          <TrackedLink
             href={DATA.contact.social.X.url}
+            eventName={buildClarityEventName("home", "contact", "x", "click")}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
           >
             with a direct question on X
-          </Link>{" "}
+          </TrackedLink>{" "}
           and I&apos;ll respond whenever I can. I ignore unsolicited pitches.
         </p>
       </div>

@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import { AgentationToolbar } from "@/components/agentation-toolbar";
+import { ClarityAnalytics } from "@/components/clarity-analytics";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
@@ -97,6 +98,7 @@ export default function RootLayout({
             </div>
             <Navbar />
             <AgentationToolbar />
+            <ClarityAnalytics />
           </TooltipProvider>
         </ThemeProvider>
       </body>
