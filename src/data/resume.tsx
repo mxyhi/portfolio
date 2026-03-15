@@ -31,15 +31,15 @@ import { Vue } from "@/components/ui/svgs/vue";
 import { HomeIcon, Leaf, NotebookIcon, SquarePi } from "lucide-react";
 
 export const DATA = {
-  name: "mxyhi",
-  initials: "MX",
+  name: "Mao",
+  initials: "M",
   url: "https://mxyhi.com",
   location: "China",
   locationLink: "https://www.google.com/maps/place/china",
   description:
     "I'm a full-stack engineer building AI agents, RAG knowledge bases, vector retrieval systems, AI automation, local AI gateways, and developer tooling.",
   summary:
-    "I work as a full-stack engineer, and I spend a lot of time on AI agents, RAG knowledge bases, vector retrieval, AI automation, and developer workflows. Recent work includes [token_proxy](https://github.com/mxyhi/token_proxy), a local AI gateway for OpenAI, Gemini, and Anthropic; [ok-skills](https://github.com/mxyhi/ok-skills), a curated skill collection and AGENTS.md playbooks for coding agents; and [always-on-memory-agent](https://github.com/mxyhi/always-on-memory-agent), a customized fork exploring persistent memory for agent systems.\n\nI also build product experiments and utilities across TypeScript, Python, and Rust, including [voice-copy](https://github.com/mxyhi/voice-copy) and [llm_model](https://github.com/mxyhi/llm_model). I care about pragmatic engineering, evidence-backed iteration, and tools that make AI workflows more reliable.",
+    "I'm Mao, known online as [mxyhi](https://github.com/mxyhi). I work as a full-stack engineer, and I spend a lot of time on AI agents, RAG knowledge bases, vector retrieval, AI automation, and developer workflows. Recent work includes [token_proxy](https://github.com/mxyhi/token_proxy), a local AI gateway for OpenAI, Gemini, and Anthropic; [ok-skills](https://github.com/mxyhi/ok-skills), a curated skill collection and AGENTS.md playbooks for coding agents; and [always-on-memory-agent](https://github.com/mxyhi/always-on-memory-agent), a customized fork exploring persistent memory for agent systems.\n\nI also build product experiments and utilities across TypeScript, Python, and Rust, including [voice-copy](https://github.com/mxyhi/voice-copy) and [llm_model](https://github.com/mxyhi/llm_model). I care about pragmatic engineering, evidence-backed iteration, and tools that make AI workflows more reliable.",
   avatarUrl: "https://avatars.githubusercontent.com/u/78336556?v=4",
   skills: [
     { name: "Typescript", icon: Typescript },
