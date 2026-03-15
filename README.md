@@ -42,6 +42,15 @@ Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://
 
 5. Open the [Config file](./src/data/resume.tsx) and make changes
 
+## Agentation
+
+Agentation is mounted automatically in local development for visual feedback and page annotation.
+
+- Start the app with `pnpm dev`
+- The toolbar appears in the bottom-right corner
+- It runs in local-only mode by default
+- Set `NEXT_PUBLIC_AGENTATION_ENDPOINT` only if you later want Agent Sync
+
 # License
 
 Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).

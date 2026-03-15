@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import { AgentationToolbar } from "@/components/agentation-toolbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { DATA } from "@/data/resume";
@@ -87,6 +88,7 @@ export default function RootLayout({
               {children}
             </div>
             <Navbar />
+            <AgentationToolbar />
           </TooltipProvider>
         </ThemeProvider>
       </body>
