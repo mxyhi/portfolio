@@ -41,3 +41,5 @@ next-env.d.ts
 findings.md
 progress.md
 task_plan.md
+.tmp-buildx
+docs/deployment.md

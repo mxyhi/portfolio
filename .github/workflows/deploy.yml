@@ -1,0 +1,80 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  DEPLOY_HOST: ${{ vars.DEPLOY_HOST }}
+  DEPLOY_PATH: ${{ vars.DEPLOY_PATH }}
+  DEPLOY_PORT: ${{ vars.DEPLOY_PORT != '' && vars.DEPLOY_PORT || '22' }}
+  LOCAL_IMAGE_NAME: ${{ vars.LOCAL_IMAGE_NAME != '' && vars.LOCAL_IMAGE_NAME || 'portfolio' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Build image archive
+        id: build
+        run: |
+          set -euo pipefail
+          IMAGE_TAG="sha-${GITHUB_SHA}"
+          IMAGE_ARCHIVE="/tmp/${LOCAL_IMAGE_NAME}-${IMAGE_TAG}.tar.gz"
+          docker build -t "${LOCAL_IMAGE_NAME}:${IMAGE_TAG}" .
+          docker save "${LOCAL_IMAGE_NAME}:${IMAGE_TAG}" | gzip > "${IMAGE_ARCHIVE}"
+          printf 'image_tag=%s\n' "${IMAGE_TAG}" >> "$GITHUB_OUTPUT"
+          printf 'image_archive=%s\n' "${IMAGE_ARCHIVE}" >> "$GITHUB_OUTPUT"
+
+      - name: Configure SSH
+        env:
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          set -euo pipefail
+          : "${DEPLOY_HOST:?DEPLOY_HOST repository variable is required}"
+          : "${DEPLOY_PATH:?DEPLOY_PATH repository variable is required}"
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$DEPLOY_PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+          {
+            echo "Host deploy-target"
+            echo "  HostName $DEPLOY_HOST"
+            echo "  User $DEPLOY_USER"
+            echo "  Port $DEPLOY_PORT"
+            echo "  IdentityFile ~/.ssh/id_ed25519"
+            echo "  IdentitiesOnly yes"
+          } >> ~/.ssh/config
+
+      - name: Ensure remote directory exists
+        run: ssh deploy-target "mkdir -p '$DEPLOY_PATH/scripts' '$DEPLOY_PATH/releases'"
+
+      - name: Upload deployment assets
+        run: |
+          scp docker-compose.yml .env.example deploy-target:"$DEPLOY_PATH/"
+          scp scripts/deploy-remote.sh deploy-target:"$DEPLOY_PATH/scripts/deploy-remote.sh"
+          scp "${{ steps.build.outputs.image_archive }}" deploy-target:"$DEPLOY_PATH/releases/${LOCAL_IMAGE_NAME}-${{ steps.build.outputs.image_tag }}.tar.gz"
+
+      - name: Run remote deployment
+        run: |
+          ssh deploy-target "
+            set -euo pipefail
+            chmod +x '$DEPLOY_PATH/scripts/deploy-remote.sh'
+            DEPLOY_IMAGE='${LOCAL_IMAGE_NAME}' \
+            DEPLOY_IMAGE_TAG='${{ steps.build.outputs.image_tag }}' \
+            DEPLOY_IMAGE_ARCHIVE='$DEPLOY_PATH/releases/${LOCAL_IMAGE_NAME}-${{ steps.build.outputs.image_tag }}.tar.gz' \
+            '$DEPLOY_PATH/scripts/deploy-remote.sh' '$DEPLOY_PATH'
+          "
