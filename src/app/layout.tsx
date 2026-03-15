@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     template: `%s | ${DATA.name}`,
   },
   description: DATA.description,
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "64x64" },
+      { url: "/icon.png", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: [{ url: "/favicon.ico" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "192x192" }],
+  },
   openGraph: {
     title: `${DATA.name}`,
     description: DATA.description,
