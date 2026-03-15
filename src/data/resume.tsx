@@ -31,16 +31,16 @@ import { Vue } from "@/components/ui/svgs/vue";
 import { HomeIcon, Leaf, NotebookIcon, SquarePi } from "lucide-react";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
-  url: "https://dillion.io",
-  location: "San Francisco, CA",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
+  name: "mxyhi",
+  initials: "MX",
+  url: "https://mxyhi.com",
+  location: "China",
+  locationLink: "https://www.google.com/maps/place/china",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
+    "I'm a full-stack engineer building AI agents, RAG knowledge bases, vector retrieval systems, AI automation, local AI gateways, and developer tooling.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
-  avatarUrl: "/me.png",
+    "I work as a full-stack engineer, and I spend a lot of time on AI agents, RAG knowledge bases, vector retrieval, AI automation, and developer workflows. Recent work includes [token_proxy](https://github.com/mxyhi/token_proxy), a local AI gateway for OpenAI, Gemini, and Anthropic; [ok-skills](https://github.com/mxyhi/ok-skills), a curated skill collection and AGENTS.md playbooks for coding agents; and [always-on-memory-agent](https://github.com/mxyhi/always-on-memory-agent), a customized fork exploring persistent memory for agent systems.\n\nI also build product experiments and utilities across TypeScript, Python, and Rust, including [voice-copy](https://github.com/mxyhi/voice-copy) and [llm_model](https://github.com/mxyhi/llm_model). I care about pragmatic engineering, evidence-backed iteration, and tools that make AI workflows more reliable.",
+  avatarUrl: "https://avatars.githubusercontent.com/u/78336556?v=4",
   skills: [
     { name: "Typescript", icon: Typescript },
     { name: "Vue", icon: Vue },
@@ -83,8 +83,8 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "imxyi@hotmail.com",
+    tel: "",
     social: {
       GitHub: {
         name: "GitHub",
@@ -115,7 +115,7 @@ export const DATA = {
       // },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "mailto:imxyi@hotmail.com",
         icon: Icons.email,
 
         navbar: false,
