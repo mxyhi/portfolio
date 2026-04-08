@@ -4,10 +4,10 @@ import { findContentEntryBySlug, getContentSlug } from "@/lib/content-entries";
 import { CONTENT_SECTIONS } from "@/lib/content-sections";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { allPosts } from "content-collections";
+import { allLearnPosts } from "content-collections";
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return allLearnPosts.map((post) => ({
     slug: getContentSlug(post),
   }));
 }
@@ -20,16 +20,16 @@ export async function generateMetadata({
   }>;
 }): Promise<Metadata | undefined> {
   const { slug } = await params;
-  const post = findContentEntryBySlug(allPosts, slug);
+  const post = findContentEntryBySlug(allLearnPosts, slug);
 
   if (!post) {
     return undefined;
   }
 
-  return createEntryMetadata(CONTENT_SECTIONS.blog, post);
+  return createEntryMetadata(CONTENT_SECTIONS.learn, post);
 }
 
-export default async function BlogPostPage({
+export default async function LearnPostPage({
   params,
 }: {
   params: Promise<{
@@ -37,7 +37,7 @@ export default async function BlogPostPage({
   }>;
 }) {
   const { slug } = await params;
-  const post = findContentEntryBySlug(allPosts, slug);
+  const post = findContentEntryBySlug(allLearnPosts, slug);
 
   if (!post) {
     notFound();
@@ -46,8 +46,8 @@ export default async function BlogPostPage({
   return (
     <ContentDetailPage
       entry={post}
-      entries={allPosts}
-      section={CONTENT_SECTIONS.blog}
+      entries={allLearnPosts}
+      section={CONTENT_SECTIONS.learn}
     />
   );
 }

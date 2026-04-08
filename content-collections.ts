@@ -4,32 +4,37 @@ import remarkGfm from "remark-gfm";
 import { z } from "zod";
 import { remarkCodeMeta } from "./src/lib/remark-code-meta";
 
-const posts = defineCollection({
-    name: "posts",
-    // Only files under content/published are treated as live blog posts.
-    // Example drafts stay in content/examples as reference material.
-    directory: "content/published",
-    include: "**/*.mdx",
-    schema: z.object({
-        title: z.string(),
-        publishedAt: z.string(),
-        updatedAt: z.string().optional(),
-        author: z.string().optional(),
-        summary: z.string(),
-        image: z.string().optional(),
-        content: z.string(),
-    }),
-    transform: async (document, context) => {
-        const mdx = await compileMDX(context, document, {
-            remarkPlugins: [remarkGfm, remarkCodeMeta],
-        });
-        return {
-        ...document,
-            mdx,
-        };
-    },
+const entrySchema = z.object({
+    title: z.string(),
+    publishedAt: z.string(),
+    updatedAt: z.string().optional(),
+    author: z.string().optional(),
+    summary: z.string(),
+    image: z.string().optional(),
+    content: z.string(),
 });
 
+const createMdxCollection = (name: string, directory: string) =>
+  defineCollection({
+    name,
+    directory,
+    include: "**/*.mdx",
+    schema: entrySchema,
+    transform: async (document, context) => {
+      const mdx = await compileMDX(context, document, {
+        remarkPlugins: [remarkGfm, remarkCodeMeta],
+      });
+      return {
+        ...document,
+        mdx,
+      };
+    },
+  });
+
+const posts = createMdxCollection("posts", "content/published");
+// Keep examples as repo-only references. Live learn content comes from its own directory.
+const learnPosts = createMdxCollection("learnPosts", "content/learn");
+
 export default defineConfig({
-    collections: [posts],
+  collections: [posts, learnPosts],
 });

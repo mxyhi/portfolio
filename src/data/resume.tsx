@@ -28,7 +28,7 @@ import { Tauri } from "@/components/ui/svgs/tauri";
 import { Typescript } from "@/components/ui/svgs/typescript";
 import { Vercel } from "@/components/ui/svgs/vercel";
 import { Vue } from "@/components/ui/svgs/vue";
-import { HomeIcon, Leaf, NotebookIcon, SquarePi } from "lucide-react";
+import { BookOpenText, HomeIcon, Leaf, NotebookIcon, SquarePi } from "lucide-react";
 
 export const DATA = {
   name: "Mao",
@@ -81,6 +81,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/learn", icon: BookOpenText, label: "Learn" },
   ],
   contact: {
     email: "imxyi@hotmail.com",

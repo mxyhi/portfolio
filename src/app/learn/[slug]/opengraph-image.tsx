@@ -1,6 +1,6 @@
 import { createContentOpenGraphImage } from "@/lib/content-opengraph";
 import { findContentEntryBySlug } from "@/lib/content-entries";
-import { allPosts } from "content-collections";
+import { allLearnPosts } from "content-collections";
 
 export const runtime = "edge";
 export const size = {
@@ -9,7 +9,7 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export const alt = "Blog Post";
+export const alt = "Learning Note";
 
 export default async function Image({
   params,
@@ -17,12 +17,12 @@ export default async function Image({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = findContentEntryBySlug(allPosts, slug);
+  const post = findContentEntryBySlug(allLearnPosts, slug);
 
   if (!post) {
     return createContentOpenGraphImage({
       title: "Post Not Found",
-      description: "This blog post could not be found.",
+      description: "This learning note could not be found.",
       alt,
     });
   }

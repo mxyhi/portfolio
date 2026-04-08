@@ -8,12 +8,12 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export const alt = "Blog";
+export const alt = "Learn";
 
 export default async function Image() {
   return createContentOpenGraphImage({
-    title: CONTENT_SECTIONS.blog.title,
-    description: CONTENT_SECTIONS.blog.description,
+    title: CONTENT_SECTIONS.learn.title,
+    description: CONTENT_SECTIONS.learn.description,
     alt,
   });
 }
