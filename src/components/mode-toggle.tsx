@@ -1,9 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/theme-provider";
 import { buildClarityEventName, trackClarityEvent } from "@/lib/clarity";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 export function ModeToggle({ className }: { className?: string }) {
