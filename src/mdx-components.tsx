@@ -1,5 +1,6 @@
 import { CodeBlock } from "@/components/mdx/code-block";
 import { MediaContainer } from "@/components/mdx/media-container";
+import { BilibiliVideo } from "@/components/mdx/bilibili-video";
 import type { ComponentProps } from "react";
 
 type CodeProps = ComponentProps<"code"> & {
@@ -7,6 +8,7 @@ type CodeProps = ComponentProps<"code"> & {
 };
 
 export const mdxComponents = {
+  BilibiliVideo,
   MediaContainer,
   pre: (props: ComponentProps<"pre">) => <CodeBlock {...props} />,
   hr: (props: ComponentProps<"hr">) => (
@@ -46,4 +48,3 @@ export const mdxComponents = {
     );
   },
 } as const;
-
