@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   findContentEntryBySlug,
@@ -69,4 +70,13 @@ test("getContentNeighbors keeps the current blog-style previous and next orderin
 
   assert.equal(neighbors.previousEntry?.title, "Learning in Public");
   assert.equal(neighbors.nextEntry?.title, "Deliberate Practice");
+});
+
+test("learn markdown bold labels keep a delimiter boundary before Chinese text", async () => {
+  const source = await readFile(
+    new URL("../../content/learn/friends-s1e1-p2-knowledge-points.mdx", import.meta.url),
+    "utf8"
+  );
+
+  assert.doesNotMatch(source, /\*\*[^*\n]*：\*\*(?=\p{Script=Han})/u);
 });
